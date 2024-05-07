@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Nabla&family=Space+Grotesk&display=swap');
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+                rgba(0, 0, 0, 0.12) 0px -12px 30px,
+                rgba(0, 0, 0, 0.12) 0px 4px 6px,
+                rgba(0, 0, 0, 0.17) 0px 12px 13px,
+                rgba(0, 0, 0, 0.09) 0px -3px 5px; ;     
+}
+
+
+#ligaInput {
+    border: 0px;
+    height: 10%;
+    background: transparent;
+    border-bottom: 2px solid rgb(6, 70, 25);
+    margin-bottom: 5%;
+}
+
+#ligaInput:focus{
+
+    box-shadow: inset 0 0 0 3px #fff,
+    0 0 0 4px #fff,
+    3px -3px 30px #1beabd, 
+    -3px 3px 30px #10abff;
+}
+
+.time {
+    font-family: 'Bungee Spice', cursive; ;
+    font-size: 1.5rem;
+}
+
+
+
+.list > li {
+    font-family: 'Bungee Spice', cursive; ;
+    box-shadow: rgba(185, 19, 172, 0.25) 0px 54px 55px,
+               rgba(161, 39, 192, 0.12) 0px -12px 30px,
+               rgba(238, 97, 238, 0.12) 0px 4px 6px,
+               rgba(255, 153, 238, 0.17) 0px 12px 13px,
+             rgba(25, 158, 211, 0.09) 0px -3px 5px; ; 
+}
+
