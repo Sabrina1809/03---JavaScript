@@ -105,9 +105,10 @@ fetch(bl1Api)
   })
 
   .then(data => {
-    // console.log(data);
+    console.log(data);
 
-    bl1 = data;
+ 
+    let bl1 = data;
     console.log(bl1);
 
     let team1;
@@ -122,13 +123,15 @@ fetch(bl1Api)
 
 
     for (let i = 0; i < bl1.length; i++) {
-        team1 = bl1[i].team1.teamName;
+        team1 = bl1[1].team1.teamName;
+        console.log(team1);
         team2 = bl1[i].team2.teamName;
         console.log(`${team1} vs ${team2}`);
         
 
         if (bl1[i].goals.length !== 0) {
             //-------------ERGEBNIS-TEAM FUNKTIONIERT NICHT
+            ergebnisTeam1 = bl1.fi
             ergebnisTeam1 = bl1[i].goals[0];
             console.log(ergebnisTeam1);  
             spiel.textContent(ergebnisTeam1);
@@ -164,7 +167,7 @@ fetch(bl1Api)
     //     console.log('Hier ist etwas schief gelaufen!');
     // }
     };
-    zukunft();
+    zukunft(data);
   })
 
   .catch(error => {
@@ -175,19 +178,19 @@ fetch(bl1Api)
 
 
 
-  fetch(bl2Api)
-  .then(response => {
-    if (!response.ok) {
-      throw new Error('Network response was not ok');
-    }
-    return response.json();
-  })
+//   fetch(bl2Api)
+//   .then(response => {
+//     if (!response.ok) {
+//       throw new Error('Network response was not ok');
+//     }
+//     return response.json();
+//   })
 
-  .then(data => {
-    // console.log(data);
+//   .then(data => {
+//     // console.log(data);
 
-    bl2 = data;
-    console.log(bl2);
+//     bl2 = data;
+//     console.log(bl2);
 
     // let team1;
     // let team2;
@@ -296,4 +299,4 @@ fetch(bl1Api)
 //   console.error('There was a problem with the fetch operation:', error);
 // });
 
-  })
+//   })

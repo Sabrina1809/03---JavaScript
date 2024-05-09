@@ -14,7 +14,7 @@
 
 
 #ligaInput {
-    width: 50%;
+    width: 60%;
     min-width: 10rem;
     border: 0px;
     height: 10%;
@@ -40,12 +40,24 @@
     padding-left: 0;
 }
 
-.list > li {
+.spiel {
+    width: 100%;
+    margin-bottom: 10px;
+    border-radius: 3px;
     font-family: 'Bungee Spice', cursive; ;
     box-shadow: rgba(185, 19, 172, 0.25) 0px 54px 55px,
                rgba(161, 39, 192, 0.12) 0px -12px 30px,
                rgba(238, 97, 238, 0.12) 0px 4px 6px,
                rgba(255, 153, 238, 0.17) 0px 12px 13px,
              rgba(25, 158, 211, 0.09) 0px -3px 5px; ; 
-}
+    justify-content: center;
+            }
 
+.team {
+    padding: 5px 5px 0 5px;
+    margin: 0;
+} 
+.tore {
+    padding: 5px;
+    margin: 0;
+}
