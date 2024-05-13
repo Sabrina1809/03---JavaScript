@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Nabla&family=Space+Grotesk&display=swap');
 
 .card {
+    padding-top: 10px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;

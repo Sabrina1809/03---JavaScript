@@ -138,12 +138,13 @@ let ligaInput = document.querySelector('#ligaInput');
 ligaInput.addEventListener('keydown', function (e) {
     if (e.key === "Enter") {
         if (ligaInput.value === "bl1") {
-            function getData() {
-                fetch(bl1api)   
-                .then((res) => res.json())
-                .then((data) => console.log(data));
-            }
-            getData();
+            bl1();
+            // function getData() {
+            //     fetch(bl1api)   
+            //     .then((res) => res.json())
+            //     .then((data) => console.log(data));
+            // }
+            // getData();
         } else if (ligaInput.value === "bl2") {
             function getData() {
                 fetch(bl2api)   
@@ -161,8 +162,8 @@ ligaInput.addEventListener('keydown', function (e) {
         } else {
             console.log("Eingabe überprüfen!");
         }
-    }
-});
+    }}
+);
 
 
 
