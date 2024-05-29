@@ -7,6 +7,6 @@ bmi = Math.floor(kg / ((cm/100) * (cm/100)));
 return bmi;
 }
 
-bmiRechnung(170, 170, 73);
+bmiRechnung(170, 170, 70);
 
 console.log(bmi);

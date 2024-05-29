@@ -3,9 +3,53 @@ body {
     justify-content: center;
     flex-wrap: wrap; */
     background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(24,218,143,1) 37%, rgba(35,171,199,1) 80%);
-
+    width: 100vw;
+    height: 100vh;
 }
 
+.suchfeld {
+    display: flex;
+    justify-content: center;
+    column-gap: 5%;
+    align-items: center;
+    width: 30%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#color {
+    padding: 3%;
+    height: 5vh;
+    width: 70%;
+    box-sizing: border-box;
+    outline: none;
+    border: 1px solid black;
+    box-shadow: 0 0 3px black;
+
+    font-size: 2.5vh;
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.button {
+    width: 25%;
+    height: 5vh;
+    border: 1px solid black;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.5vh;
+    box-shadow: 0 0 3px black;
+
+    &:hover {
+        background-color: lightgrey;
+        box-shadow: 0 0 3px black inset;
+        font-size: 2.4vh;
+    }
+}
 
 
 .bodyContainer {

@@ -1,13 +1,7 @@
-let time = document.getElementById("time");
+// ÜBERSCHRIFT*******************************************
 
 let now = new Date();
-
-let jahr = now.getFullYear();
 let mon = now.getMonth();
-let tag = now.getDate();
-let stunde = now.getHours();
-let minute = now.getMinutes();
-let sek = now.getSeconds();
 
 switch (mon) {
     case 0:
@@ -48,128 +42,86 @@ switch (mon) {
         break;
 }
 
-let zweistelligTag = String(tag).padStart(2, '0'); 
-
-function umwandeln() {
-    let tagXX = String(tag).padStart(2, '0');
-    let stundeXX = String(stunde).padStart(2, '0');
-    let minuteXX = String(minute).padStart(2, '0');
-    let sekundeXX = String(sek).padStart(2, '0');
+function umwandelnÜberschrift() {
+    let jahr = now.getFullYear();
+    let tag = String(now.getDate()).padStart(2, '0');
+    let stunde = String(now.getHours()).padStart(2, '0');
+    let minute = String(now.getMinutes()).padStart(2, '0');
+    let sekunde = String(now.getSeconds()).padStart(2, '0');
 
     let ueberschrift = 
-`${jahr}-${mon}-${tagXX}
-${stundeXX}:${minuteXX}:${sekundeXX}`;
+`${jahr}-${mon}-${tag}
+${stunde}:${minute}:${sekunde}`;
 
-    time.innerText = ueberschrift; 
+    document.getElementById("time").innerText = ueberschrift; 
     console.log(ueberschrift);
 }
-umwandeln();
+umwandelnÜberschrift();
 
 
 
-
+// SPIELE*******************************************
 
 let bl1api = 'https://api.openligadb.de/getmatchdata/bl1/2023/33'; 
 let bl2api = 'https://api.openligadb.de/getmatchdata/bl2/2023/33'; 
 let bl3api = 'https://api.openligadb.de/getmatchdata/bl3/2023/37'; 
 
-let team1 = "Offenburg";
-let team2 = "Unzhurst";
-let toreTeam1 = 5;
-let toreTeam2 = 1;
-
-let team = (`${team1} vs ${team2}`).toString();
-let tore = (`${toreTeam1}:${toreTeam2}`).toString();
-
-const ul = document.querySelector('.list');  //ul
-
-let li = document.createElement('li');
-li.className = "spiel";
-
-let pTeam = document.createElement('p');
-pTeam.className = "team";
-pTeam.innerText = team;
-console.log(team);
-
-let pTore = document.createElement('p');
-pTore.className = "tore";
-pTore.innerText = tore;
-console.log(tore);
-
-function replaceData(data) {
-    team1.innerText = `${data[0].team1.teamName}`;
-    console.log(team1);
-    team2.innerText = `${data[0].team2.teamName}`;
-    console.log(team2);
-    //----------------------------------------------------
-    // toreTeam1.innerText = data[0].goals.scoreTeam1; //Tore werden nciht ausgegeben
-    // console.log(toreTeam1);   ///
-    // console.log(data);
-}
-
+let ligaInput = document.querySelector('#ligaInput');
+ligaInput.addEventListener('keydown', function (e) {
+    if (e.key === "Enter") {
+        if (ligaInput.value === "bl1") {
+            bl1();
+        } else if (ligaInput.value === "bl2") {
+            bl2();
+        } else if (ligaInput.value === "bl3") {
+            bl3();
+        } else {
+            alert("Eingabe überprüfen!");
+        }
+    }}
+);
 
 function bl1() {
     fetch(bl1api)   
     .then((res) => res.json())
     .then((data) => replaceData(data));
-    
 }
-// bl1();
-
 function bl2() {
     fetch(bl2api)   
     .then((res) => res.json())
     .then((data) => replaceData(data));
-    
 }
-// bl2();
-
 function bl3() {
     fetch(bl3api)   
     .then((res) => res.json())
     .then((data) => replaceData(data));
-    
 }
-// bl3();
+
+const ul = document.querySelector('.list');  
+
+function replaceData(data) {
+        ul.innerHTML = "";
+
+    for (let i = 0; i < data.length; i++) {
+        let li = document.createElement("li");
+        li.classList.add("spiel");
+        
+        let pteam = document.createElement("p");
+        pteam.classList.add("team");
+        pteam.textContent = 
+        `${data[i].team1.teamName} vs ${data[i].team2.teamName}`;
+
+        let ptore = document.createElement("p");
+        ptore.classList.add("tore");
+        ptore.textContent = 
+        `${data[i].matchResults[1].pointsTeam1} vs ${data[i].matchResults[1].pointsTeam2}`;
+
+        li.appendChild(pteam);
+        li.appendChild(ptore);
+
+        ul.appendChild(li);
+    }
+}
 
 
-let ligaInput = document.querySelector('#ligaInput');
-
-ligaInput.addEventListener('keydown', function (e) {
-    if (e.key === "Enter") {
-        if (ligaInput.value === "bl1") {
-            bl1();
-            // function getData() {
-            //     fetch(bl1api)   
-            //     .then((res) => res.json())
-            //     .then((data) => console.log(data));
-            // }
-            // getData();
-        } else if (ligaInput.value === "bl2") {
-            function getData() {
-                fetch(bl2api)   
-                .then((res) => res.json())
-                .then((data) => console.log(data));
-            }
-            getData();
-        } else if (ligaInput.value === "bl3") {
-            function getData() {
-                fetch(bl3api)   
-                .then((res) => res.json())
-                .then((data) => console.log(data));
-            }
-            getData();
-        } else {
-            console.log("Eingabe überprüfen!");
-        }
-    }}
-);
-
-
-
-li.appendChild(pTeam);
-li.appendChild(pTore);
-ul.appendChild(li);
-console.log(ul);
-console.log(li);
 
